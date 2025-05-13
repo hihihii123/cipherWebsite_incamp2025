@@ -32,19 +32,25 @@ function isUpperCase (character) {
  */
 export function Vigenereencrypt (message, key) {
   let result = ''
- 
+
   for (let i = 0, j = 0; i < message.length; i++) {
     const c = message.charAt(i)
     if (isLetter(c)) {
       if (isUpperCase(c)) {
-        result += String.fromCharCode((c.charCodeAt(0) + key.toUpperCase().charCodeAt(j) - 2 * 65) % 26 + 65) // A: 65
+        result += String.fromCharCode(
+          (c.charCodeAt(0) + key.toUpperCase().charCodeAt(j) - 2 * 65) % 26 + 65
+        )
       } else {
-        result += String.fromCharCode((c.charCodeAt(0) + key.toLowerCase().charCodeAt(j) - 2 * 97) % 26 + 97) // a: 97
+        result += String.fromCharCode(
+          (c.charCodeAt(0) + key.toLowerCase().charCodeAt(j) - 2 * 97) % 26 + 97
+        )
       }
+      // only advance key index when character is alphabetic
+      j = (j + 1) % key.length
     } else {
+      // non-alphabetic: leave as is and do not advance j
       result += c
     }
-    j = ++j % key.length
   }
   return result
 }
@@ -56,4 +62,13 @@ export function text2Binary(text) {
     binary += binaryChar.padStart(8, '0') + " ";
   }
   return binary.trim();
+}
+export function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
 }
