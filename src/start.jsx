@@ -47,7 +47,7 @@ export default function StartPage() {
   ["Elva",                                  "kayden",                 "Dylan",                           "Balla"],
   ["Ethan",                          "Yu Xiang",                "wan hou",                         "Kaixu"]
 ];
-    const key = groups[groupnumber - 1][Math.floor(Math.random() * 4)].trim();
+    const key = groups[groupnumber - 1][Math.floor(Math.random() * 4)].replaceAll(" ", "");
     const ct = String("INCAMP" + makeid(key.length*2-6)).toUpperCase();
     const vig = Vigenereencrypt(ct, key);
     return {
