@@ -44,7 +44,7 @@ export default function StartPage() {
   ["GOH XIN NI", "Lim Wen Hong", "Iresh Ramasamy", "Aldo Djojorahardjo"],
   ["Phua Xuan Zhi Ethan", "Isaac Woon Xin Wei", "Chew Aorong Zavier", "Cyril Lim Jun Kai"]
 ];
-    const key = groups[groupnumber - 1]?.[Math.floor(Math.random() * 5)] || "";
+    const key = groups[groupnumber - 1]?.[Math.floor(Math.random() * 5)].trim() || "";
     const xored = xorCipher(ct, groupnumber);
     const vig = Vigenereencrypt(xored, key);
     return {
