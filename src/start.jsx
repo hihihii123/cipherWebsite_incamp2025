@@ -8,7 +8,9 @@ export default function StartPage() {
   const [showHint, setShowHint] = useState(0);
   const [showHintValue, setShowHintValue] = useState(0);
   const [success, setSuccess] = useState(false);
-
+  const showHintFunc = () => {
+    alert(name)
+  }
   const location = useLocation();
   const navigate = useNavigate();
   const { groupnumber } = location.state || {};
@@ -48,6 +50,7 @@ export default function StartPage() {
     const xored = xorCipher(ct, groupnumber);
     const vig = Vigenereencrypt(xored, key);
     return {
+
       cipherText: ct,
       name: key,
       toShow: text2Binary(vig)
