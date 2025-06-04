@@ -8,16 +8,14 @@ export default function StartPage() {
   const [showHint, setShowHint] = useState(0);
   const [showHintValue, setShowHintValue] = useState(0);
   const [success, setSuccess] = useState(false);
-  const showHintFunc = () => {
-    alert(name)
-  }
+  
   const location = useLocation();
   const navigate = useNavigate();
   const { groupnumber } = location.state || {};
 
   // generate cipher, key‐name, encryption & binary on mount
   const { cipherText, name, toShow } = useMemo(() => {
-    const ct = String("INCAMP" + makeid(8)).toUpperCase();
+    
     const groups = [
   ["NATHAN LUKE GAMBOA CHONG JIA HAO", "KANNAN VITHAN", "Vegus Lim Zen Kng", "Dylan Nguyen Dang Khoa"],
   ["RANDALL THAW ZAE TUN", "TANG KE HONG ZACHARY", "Wong Wei Kai Lucas", "Annamalai Palaniappan"],
@@ -46,9 +44,9 @@ export default function StartPage() {
   ["GOH XIN NI", "Lim Wen Hong", "Iresh Ramasamy", "Aldo Djojorahardjo"],
   ["Phua Xuan Zhi Ethan", "Isaac Woon Xin Wei", "Chew Aorong Zavier", "Cyril Lim Jun Kai"]
 ];
-    const key = groups[groupnumber - 1]?.[Math.floor(Math.random() * 5)].trim() || "";
-    const xored = xorCipher(ct, groupnumber);
-    const vig = Vigenereencrypt(xored, key);
+    const key = groups[groupnumber - 1]?.[Math.floor(Math.random() * 4)].trim() || "";
+    const ct = String("INCAMP" + makeid(key.length)).toUpperCase();
+    const vig = Vigenereencrypt(ct, key);
     return {
 
       cipherText: ct,
@@ -76,8 +74,11 @@ export default function StartPage() {
 
   function showHintFunc() {
     if (showHint > 300) {
-      setShowHintValue(1);
+      showActualHInt(1);
     }
+  }
+  const showActualHInt = () => {
+    alert(name)
   }
 
   return (
