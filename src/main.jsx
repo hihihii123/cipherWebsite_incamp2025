@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')).render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path='/cipherpage/' element={<StartPage />} />
-      <Route path='/successyippee/groupn' element={<SuccessPage />} />
+      <Route path='/successyippee/groupn/whyruhere/getout/oi/l/ratio/whyrustillreadingthis/youshouldnotreadthis/hidajskhjlkahdjshjhdsjkcnieahjnsdfkmbkljdshfcnljaewkjhsdfcjancjlndsjdfnjahdsjnsjdncacjnweiuhdckjsxnjksnafdcjansdcjanjdnfjnthiswasbroughttoyoubysstincifyouseethistellwhoeversinchargeoftheboothandyoumayormaynotgetaprizedskjhjkahdscxnskajSdcluuahkdnxsknakdsbnfkjhaekddkjfsahsjkdfhjksdhfjkshadfjkhcniuasdhfcjknaiudsjkhfcbjhedsbjcuhndsjhmcnbuhdskjhjahsdjhajsdhass/hudhwuiehduhquedhuqwhediushxajkhkcjnajsncdasxz/iwillfindyou' element={<SuccessPage />} />
     </Routes>
   </BrowserRouter>,
 )
