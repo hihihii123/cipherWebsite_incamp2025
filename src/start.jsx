@@ -8,7 +8,7 @@ export default function StartPage() {
   const [showHint, setShowHint] = useState(0);
   const [showHintValue, setShowHintValue] = useState(0);
   const [success, setSuccess] = useState(false);
-  
+  const [showquestion, setShowQuestion] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { groupnumber } = location.state || {};
@@ -47,7 +47,7 @@ export default function StartPage() {
   ["Elva",                                  "kayden",                 "Dylan",                           "Balla"],
   ["Ethan",                          "Yu Xiang",                "wan hou",                         "Kaixu"]
 ];
-    const key = groups[groupnumber - 1]?.[Math.floor(Math.random() * 4)].trim() || "";
+    const key = groups[groupnumber - 1][Math.floor(Math.random() * 4)].trim();
     const ct = String("INCAMP" + makeid(key.length*2-6)).toUpperCase();
     const vig = Vigenereencrypt(ct, key);
     return {
@@ -102,6 +102,7 @@ export default function StartPage() {
         value={answer}
         onChange={e => setAnswer(e.target.value)}
       />
+      <p>{showquestion?name:""}</p>
       <br /><br />
       <button onClick={check}>Submit</button>
     </>
